@@ -35,7 +35,7 @@ public class LoginActivity extends AppCompatActivity {
     private List<Step>stepList=new ArrayList<>();
     private List<Admit>admitList=new ArrayList<>();
     private List<FeedBack>feedbackList=new ArrayList<>();
-    private String cid;
+    private String cid="11";
     private String[] cids={"11","10","117","104","12"};
     private RadioGroup rad_group;
     private RadioButton rad_manager;
@@ -107,7 +107,8 @@ public class LoginActivity extends AppCompatActivity {
                             @Override
                             public void onClick(View view) {
                                 Intent intent=new Intent(LoginActivity.this,Soft1714080902104Activity.class);
-                                getDataForPlay();
+                                //getDataForPlay();
+                                getDatasync();
                                 GetFoodContent();
                                 startActivity(intent);
                             }
@@ -204,7 +205,7 @@ public class LoginActivity extends AppCompatActivity {
         OkHttpUtils
                 .post()
                 .url("http://apis.juhe.cn/cook/index")
-                .addParams("key","ec094bb8c7cd8ad35114c5fa0c81d678")
+                .addParams("key","ed58fe16ed5281337c00b25f420c248a")
                 .addParams("cid",cid)
                 .addParams("rn","30")
                 .build()
@@ -217,6 +218,7 @@ public class LoginActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(String response, int id) {
                         try{
+                            Toast.makeText(getApplicationContext(),response.toString(),Toast.LENGTH_SHORT).show();
                             JSONObject jsonObject=new JSONObject(response);
                             JSONObject jsonObject1=jsonObject.getJSONObject("result");
                             JSONArray jsonArray=jsonObject1.getJSONArray("data");
