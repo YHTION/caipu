@@ -1,0 +1,31 @@
+<LinearLayout xmlns:androi="http://schemas.android.com/apk/res/android"
+    androi:layout_height="match_parent"
+    androi:layout_width="match_parent"
+    androi:orientation="vertical">
+
+    <Button
+        androi:id="@+id/btn_example"
+        androi:layout_width="wrap_content"
+        androi:layout_height="wrap_content"
+        androi:text="测试">
+    </Button>
+
+    <TextView
+        androi:id="@+id/txt_example"
+        androi:layout_width="wrap_content"
+        androi:layout_height="wrap_content">
+
+    </TextView>
+
+    <ImageView
+        androi:id="@+id/img_example"
+        androi:layout_width="100dp"
+        androi:layout_height="100dp"
+        androi:background="@drawable/cp">
+
+    </ImageView>
+
+
+
+
+</LinearLayout>

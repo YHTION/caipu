@@ -1,0 +1,62 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/view_cpselect"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/bg2">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="250dp">
+
+        <Button
+            android:id="@+id/btn_add"
+            android:layout_width="120dp"
+            android:layout_height="60dp"
+            android:text="增加"
+            android:textSize="25sp"
+            android:layout_marginLeft="25dp">
+        </Button>
+
+        <Button
+            android:id="@+id/btn_change"
+            android:layout_width="120dp"
+            android:layout_height="60dp"
+            android:text="修改"
+            android:textSize="25sp"
+            android:layout_marginLeft="75dp">
+        </Button>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="20dp">
+
+        <Button
+            android:id="@+id/btn_delete"
+            android:layout_width="120dp"
+            android:layout_height="60dp"
+            android:text="删除"
+            android:textSize="25sp"
+            android:layout_marginLeft="25dp">
+        </Button>
+
+        <Button
+            android:id="@+id/btn_feendbackList"
+            android:layout_width="120dp"
+            android:layout_height="60dp"
+            android:text="反馈"
+            android:textSize="25sp"
+            android:layout_marginLeft="75dp">
+        </Button>
+
+    </LinearLayout>
+
+</LinearLayout>
