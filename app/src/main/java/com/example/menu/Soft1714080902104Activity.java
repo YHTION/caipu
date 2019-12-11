@@ -77,6 +77,7 @@ public class Soft1714080902104Activity extends AppCompatActivity {
     private SearchView searchView;
     private String[] cids={"11","10","117","104","12"};
     private boolean isPlay=false;
+    private boolean isPause=true;
     private CardView cardView;
     private ImageView cp_image;
     private TextView cp_name;
@@ -86,7 +87,7 @@ public class Soft1714080902104Activity extends AppCompatActivity {
     private Button btn_change;
     private Button btn_feedback;
     private int index=0;
-    private Timer timer=new Timer();
+    private Timer timer;
 
     private static final int RED = 0xffFF8080;
     private static final int BLUE = 0xff8080FF;
@@ -153,15 +154,37 @@ public class Soft1714080902104Activity extends AppCompatActivity {
         btn_play.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                DataPlay();
+                if (!isPlay){       //停止
+//                    getDatasync();      //重新拉取数据
+
+//                    timer = new Timer();
+                    index = 0;
+                    DataPlay();
+                    isPlay = !isPlay;           //false->true
+                    isPause = false;
+                }
+                else{       //播放中
+                    isPlay = !isPlay;       //true->false
+                    timer.cancel();         //停止
+
+                }
             }
         });
 
         btn_stop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(timer!=null)
+                if(isPlay && !isPause) {       //播放中,没暂停
+//                    isPlay = !isPlay;
+                    isPause = !isPause;     //暂停
                     timer.cancel();
+                    btn_stop.setText("继续");
+                }else if(isPlay && isPause){          //暂停
+//                    timer = new Timer();
+                    isPause = !isPause;
+                    DataPlay();
+                    btn_stop.setText("暂停");
+                }
             }
         });
 
@@ -224,7 +247,7 @@ public class Soft1714080902104Activity extends AppCompatActivity {
             每隔1.2秒向Handler中发送空消息，只传一个int
         */
 
-
+        timer = new Timer();
         timer.schedule(new TimerTask(){
             @Override
             public void run(){

@@ -218,7 +218,7 @@ public class LoginActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(String response, int id) {
                         try{
-                            Toast.makeText(getApplicationContext(),response.toString(),Toast.LENGTH_SHORT).show();
+                            //Toast.makeText(getApplicationContext(),response.toString(),Toast.LENGTH_SHORT).show();
                             JSONObject jsonObject=new JSONObject(response);
                             JSONObject jsonObject1=jsonObject.getJSONObject("result");
                             JSONArray jsonArray=jsonObject1.getJSONArray("data");
