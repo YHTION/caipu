@@ -168,6 +168,7 @@ public class Soft1714080902104Activity extends AppCompatActivity {
                     timer.cancel();         //停止
 
                 }
+                btn_play.setEnabled(false);
             }
         });
 

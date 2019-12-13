@@ -82,7 +82,18 @@ public class DataChange extends AppCompatActivity {
                     @Override
                     public void onResponse(String response, int id) {
                         try {
-                            Toast.makeText(getApplicationContext(), response.toString(), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getApplicationContext(), "修改成功", Toast.LENGTH_SHORT).show();
+
+                            for(int i=0;i<admitList.size();i++){
+                                Admit admit=admitList.get(i);
+                                if(admit.getName().equals(edit_name.getText().toString())){
+                                    admitList.remove(i);
+                                    admit.setStep(edit_step.getText().toString());
+                                    admit.setPicture(edit_picture.getText().toString());
+                                    admitList.add(admit);
+                                }
+                            }
+                            ((DataApplication)getApplication()).SetAdmitList(admitList);
                         } catch (Exception e) {
                             e.printStackTrace();
                         }

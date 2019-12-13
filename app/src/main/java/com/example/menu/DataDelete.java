@@ -22,6 +22,7 @@ public class DataDelete extends AppCompatActivity {
     private Button btn_delete;
     private List<Admit> admitList=new ArrayList<>();
     private int deleteId;
+    private int deleteDBId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,9 +50,13 @@ public class DataDelete extends AppCompatActivity {
                     if(admitList.get(i).getName().equals(edit_delete.getText().toString())){
                         //Toast.makeText(getApplicationContext(), "有", Toast.LENGTH_SHORT).show();
                         deleteId=Integer.valueOf(admitList.get(i).getId());
+                        deleteDBId=i;
+                        break;
                     }
                 }
 
+                admitList.remove(deleteDBId);
+                ((DataApplication)getApplication()).SetAdmitList(admitList);
                 UpLoadDeleteData();
             }
         });
@@ -72,7 +77,7 @@ public class DataDelete extends AppCompatActivity {
                     @Override
                     public void onResponse(String response, int id) {
                         try {
-                            Toast.makeText(getApplicationContext(), response.toString(), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getApplicationContext(), "删除成功", Toast.LENGTH_SHORT).show();
                         } catch (Exception e) {
                             e.printStackTrace();
                         }

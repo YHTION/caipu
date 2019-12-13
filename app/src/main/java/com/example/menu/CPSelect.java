@@ -84,7 +84,7 @@ public class CPSelect extends AppCompatActivity {
         //btn_delete=(Button)findViewById(R.id.btn_delete);
         caiPuList=((DataApplication)getApplication()).GetDataList();
         admitList=((DataApplication)getApplication()).GetAdmitList();
-
+        //.makeText(getApplicationContext(), String.valueOf(admitList.size()), Toast.LENGTH_SHORT).show();
         /*
         btn_change.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -218,7 +218,7 @@ public class CPSelect extends AppCompatActivity {
                 cp_caiming_text.setText("此菜品不存在");
             }
         }
-
+        SetAdmitDataByName();
     }
 
     public void SetAdmitDataByName(){
@@ -230,14 +230,14 @@ public class CPSelect extends AppCompatActivity {
                 Glide.with(getApplicationContext()).load(admitList.get(i).getPicture()).into(cp_image);
                 cp_jianjieneirong_text.setText(admitList.get(i).getPicture());
 
-                String temp=admitList.get(i).getStep();
+                /*String temp=admitList.get(i).getStep();
                 String[] tempStep=temp.split("#");
                 StringBuilder step=new StringBuilder("");
                 for(int k=1;k<tempStep.length;k++){
                     step.append(k+"."+tempStep[k]+"\n");
-                }
+                }*/
 
-                cp_buzhou_text.setText(step);
+                cp_buzhou_text.setText(admitList.get(i).getStep());
                 break;
             }else {
                 cp_caiming_text.setText("此菜品不存在");

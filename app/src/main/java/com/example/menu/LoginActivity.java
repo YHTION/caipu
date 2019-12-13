@@ -164,6 +164,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private void GetFoodContent(){
 
+        admitList.clear();
         OkHttpUtils
                 .get()
                 .url("http://101.132.227.53:8080/api/v1/food/content/all")
@@ -205,7 +206,7 @@ public class LoginActivity extends AppCompatActivity {
         OkHttpUtils
                 .post()
                 .url("http://apis.juhe.cn/cook/index")
-                .addParams("key","ed58fe16ed5281337c00b25f420c248a")
+                .addParams("key","e761329b46b3fed427d514a3e5541664")
                 .addParams("cid",cid)
                 .addParams("rn","30")
                 .build()

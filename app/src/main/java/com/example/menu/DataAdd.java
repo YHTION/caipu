@@ -82,7 +82,7 @@ public class DataAdd extends AppCompatActivity {
                     @Override
                     public void onResponse(String response, int id) {
                         try {
-                            Toast.makeText(getApplicationContext(), response.toString(), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getApplicationContext(), "添加成功", Toast.LENGTH_SHORT).show();
                             Admit admit=new Admit();
                             admit.setName(edit_name.getText().toString());
                             admit.setPicture(edit_step.getText().toString());
